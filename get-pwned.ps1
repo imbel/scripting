@@ -31,4 +31,5 @@ foreach ($line in $array) {
 if (!$pwned) {
     write-host -foregroundcolor green "This password is not in the pwned DB, you should be good!"
 }
+
 $subString = $null
