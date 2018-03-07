@@ -2,8 +2,10 @@ param (
     [Parameter(Mandatory=$True)]
     [Security.SecureString]$password
 )
-#Setting execution policy as this script is not signed
-Set-ExecutionPolicy Unrestricted -Scope Process -Force
+#Setting execution policy if needed as this script is not signed
+if ((Get-ExecutionPolicy) -ne "Unrestricted") {
+        Set-ExecutionPolicy Unrestricted -Scope Process -Force
+}
 $sha1 = new-object -TypeName System.Security.Cryptography.SHA1CryptoServiceProvider
 $utf8 = new-object -TypeName System.Text.UTF8Encoding
 $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($password)
@@ -33,5 +35,4 @@ foreach ($line in $array) {
 if (!$pwned) {
     write-host -foregroundcolor green "This password is not in the pwned DB, you should be good!"
 }
-
 $subString = $null
