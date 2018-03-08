@@ -53,7 +53,6 @@ $form.Size = New-Object System.Drawing.Size(600,400)
 $form.StartPosition = "CenterScreen"
 
 $outputBox = New-Object System.Windows.Forms.TextBox
-$outputBox.Font
 $outputBox.Location = New-Object System.Drawing.Size(20,160)
 $outputBox.Size = New-Object System.Drawing.Size(520,40)
 $outputBox.ScrollBars = "Vertical"
@@ -106,4 +105,4 @@ $Button.Add_Click({
 })
 
 $form.Add_Shown({$password.Select()})
-$form.ShowDialog()
+[VOID]$Form.Showdialog()
