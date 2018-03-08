@@ -2,7 +2,7 @@
 Windows Forms script to check for breached passwords in the haveibeenpwned breached password database.  This script makes an API call with a piece of the hash of the provided password.
 NO COMPLETE PASSWORDS ARE SENT TO THE API, THEY REMAIN LOCAL.
 More details on the implementation here https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2/
-To run, simple pass the script with no parameters.  Ensure unsigned scripts are allowed to run on your system.
+To run, simply pass the script with no parameters.  Ensure unsigned scripts are allowed to run on your system.
 #>
 function getPwned {
     [cmdletbinding()]
