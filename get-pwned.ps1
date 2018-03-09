@@ -23,7 +23,7 @@ function getPwned {
     $password = $null
     $passHash=$null
 
-    $response = invoke-webrequest -uri https://api.pwnedpasswords.com/range/$search
+    $response = invoke-webrequest -uri https://api.pwnedpasswords.com/range/$search -UseBasicParsing
     $array = $response.Content -split('\r\n')
 
     foreach ($line in $array) {
