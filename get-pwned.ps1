@@ -44,6 +44,7 @@ function getPwned {
 
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
+Add-Type -AssemblyName PresentationFramework
 
 $form = New-Object System.Windows.Forms.Form
 $Font = New-Object System.Drawing.Font("Lucida Console",10)
@@ -116,6 +117,15 @@ $Button.Add_Click({
         $outputBox.BackColor = "Limegreen"
     }
 })
+$dialog = [System.Windows.MessageBox]::Show("This utility returns the number of times the provided password has been compromised in known security breaches.`n`nDatasource is Troy Hunts haveibeenpwned password database`n`nNO PASSWORDS ARE SENT OVER THE NETWORK, THEY STAY LOCAL","Disclaimer","OkCancel")
+switch ($dialog) {
+    "OK" {
+            $form.Add_Shown({$password.Select()})
+            [VOID]$Form.Showdialog()
+    }
+    "Cancel" {
+        exit 0
+    }
+    
+}
 
-$form.Add_Shown({$password.Select()})
-[VOID]$Form.Showdialog()
