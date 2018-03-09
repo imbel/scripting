@@ -50,11 +50,14 @@ $Font = New-Object System.Drawing.Font("Lucida Console",10)
 $Form.Font = $Font
 $form.Text = "have i been pwned?"
 $form.Size = New-Object System.Drawing.Size(600,400)
+$form.MinimumSize = New-Object System.Drawing.Size(600,400)
 $form.StartPosition = "CenterScreen"
 
 $outputBox = New-Object System.Windows.Forms.TextBox
 $outputBox.Location = New-Object System.Drawing.Size(20,160)
 $outputBox.Size = New-Object System.Drawing.Size(520,40)
+$outputBox.Dock = "None"
+$outputBox.Anchor = "None"
 $outputBox.ScrollBars = "Vertical"
 $outputBox.ReadOnly = $true
 $Form.Controls.Add($outputBox)
@@ -62,12 +65,16 @@ $Form.Controls.Add($outputBox)
 $outputLabel = New-Object System.Windows.Forms.Label
 $outputLabel.Location = New-Object System.Drawing.Point(18,140)
 $outputLabel.Size = New-Object System.Drawing.Size(280,20)
+$outputLabel.Dock = "None"
+$outputLabel.Anchor = "None"
 $outputLabel.Text = "Results:"
 $form.Controls.Add($outputLabel) 
 
 $CancelButton = New-Object System.Windows.Forms.Button
 $CancelButton.Location = New-Object System.Drawing.Point(300,240)
 $CancelButton.Size = New-Object System.Drawing.Size(150,46)
+$CancelButton.Dock = "None"
+$CancelButton.Anchor = "None"
 $CancelButton.Text = "Cancel"
 $CancelButton.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
 $form.CancelButton = $CancelButton
@@ -76,19 +83,25 @@ $form.Controls.Add($CancelButton)
 $label = New-Object System.Windows.Forms.Label
 $label.Location = New-Object System.Drawing.Point(18,60)
 $label.Size = New-Object System.Drawing.Size(320,20)
+$label.Dock = "None"
+$label.Anchor = "None"
 $label.Text = "Please enter the password to check:"
 $form.Controls.Add($label)
 
 $password = New-Object System.Windows.Forms.MaskedTextBox
 $password.PasswordChar = '*'
 $password.Location = New-Object System.Drawing.Point(20,80) 
-$password.Size = New-Object System.Drawing.Size(520,40) 
+$password.Size = New-Object System.Drawing.Size(520,40)
+$password.Dock = "None"
+$password.Anchor = "None"
 $form.Controls.Add($password)
 $form.Topmost = $True
 
 $Button = New-Object System.Windows.Forms.Button
 $Button.Location = New-Object System.Drawing.Point(150,240)
 $Button.Size = New-Object System.Drawing.Size(150,46)
+$Button.Dock = "None"
+$Button.Anchor = "None"
 $Button.Text = "Check it!"
 $form.AcceptButton = $Button
 $Form.Controls.Add($Button)
