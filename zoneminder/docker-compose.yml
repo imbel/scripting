@@ -1,0 +1,9 @@
+zoneminder:
+  image: quantumobject/docker-zoneminder
+  shm_size: 4gb
+  ports:
+    - "8080:8080"
+  volumes:
+    - "/dev/shm:/dev/shm"
+  environment:
+    - TZ=America/Los_Angeles
