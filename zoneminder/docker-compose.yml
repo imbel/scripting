@@ -1,10 +1,19 @@
 zoneminder:
-  image: quantumobject/docker-zoneminder
-  shm_size: 4gb
+  image: vimagick/zoneminder
   ports:
-    - "8080:8080"
+    - "127.0.0.1:8080:80"
+  links:
+    - mysql
   volumes:
-    - "/dev/shm:/dev/shm"
-  environment:
-    - TZ=America/Los_Angeles
-  net: host
+    - ./fcgiwrap:/etc/default/fcgiwrap
+  restart: always
+
+mysql:
+  image: mysql
+  volumes:
+    - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    - ./mysql:/docker-entrypoint-initdb.d
+    - /usr/share/zoneinfo/America/Los_Angeles:/etc/localtime
+  env_file:
+    - .env
+  restart: always
