@@ -2,15 +2,15 @@ version: '2'
 
 services:
   zoneminder:
-    build: https://github.com/QuantumObject/docker-zoneminder.git
-    container_name: zoneminder
+    build: https://github.com/linuxserver/sonarr.git
+    container_name: sonarr
     restart: always
     ports:
-      - 80:80 #change the first port to where you want it
+      - 8989:8989 #change the first port to where you want it
     environment:
       - TZ=America/Los_Angeles
     volumes:
-      - /etc/zoneminder/config:/config:rw
+      - /media/multimedia:/media/multimedia:rw
       - /etc/localtime:/etc/localtime:ro
     shm_size: 4096M #edit it for fit your memory needs normally half of your totally memory
     privileged: true
