@@ -1,9 +1,17 @@
-zoneminder:
-  image: quantumobject/docker-zoneminder
-  ports:
-    - "80:80"
-  shm_size: 4gb
-  volumes:
-    - "/dev/shm:/dev/shm"
-  environment:
-    - TZ=America/Los_Angeles
+version: '3'
+
+services:
+  zoneminder:
+    build: .
+    container_name: zoneminder_ioserver
+    restart: always
+    ports:
+      - 8000:80 #change the first port to where you want it
+    environment:
+      - PGID=1001
+      - PUID=1001
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./config:/config
+      - /path/for/your/image/video/saving:/data #change for where you want all capture file to be stored
+    shm_size: 4096M #edit it for fit your memory needs normally half of your totally memory
