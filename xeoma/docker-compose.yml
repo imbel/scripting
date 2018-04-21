@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  xeoma:
+    build: https://github.com/jedimonkey/xeoma-docker.git
+    container_name: xeoma
+    restart: always
+    ports:
+      - 8085:8085 #change the first port to where you want it
+    environment:
+      - TZ=America/Los_Angeles
+    volumes:
+      - /local/path/to/config:/usr/local/Xeoma:rw
+      - /multimedia/homesec:/usr/local/Xeoma/XeomaArchive:rw
+    privileged: true
