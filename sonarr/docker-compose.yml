@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  zoneminder:
+  sonarr:
     build: https://github.com/linuxserver/sonarr.git
     container_name: sonarr
     restart: always
